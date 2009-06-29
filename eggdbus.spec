@@ -33,6 +33,7 @@ Development files for EggDBus.
 %build
 %configure \
 	--enable-gtk-doc \
+	--with-html-dir=%{_gtkdocdir} \
 	--disable-static
 
 %{__make}
@@ -46,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
-rm -rf $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/tests
+rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/tests
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,5 +65,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libeggdbus-1.so
 %{_pkgconfigdir}/eggdbus-1.pc
 %{_includedir}/eggdbus-1
-%{_datadir}/gtk-doc/html/eggdbus
+%{_gtkdocdir}/eggdbus
 %{_mandir}/man1/*.1*
