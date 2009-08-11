@@ -1,3 +1,7 @@
+
+# Conditional build:
+%bcond_without	apidocs			# build without apidocs
+
 Summary:	Experimental D-Bus bindings for GObject
 Summary(pl.UTF-8):	Eksperymentalne wiązania D-Busa do GObject
 Name:		eggdbus
@@ -13,7 +17,7 @@ BuildRequires:	automake
 BuildRequires:	dbus-devel >= 1.0.0
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	glib2-devel >= 1:2.20.0
-BuildRequires:	gtk-doc >= 1.3
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.3}
 BuildRequires:	libtool
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
@@ -72,7 +76,7 @@ Dokumentacja API EggDBus.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-gtk-doc \
+	--%{!?with_apidocs:dis}%{?with_apidocs:en}able-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
@@ -110,6 +114,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libeggdbus-1.a
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/eggdbus
+%endif
