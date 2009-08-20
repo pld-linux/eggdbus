@@ -6,7 +6,7 @@ Summary:	Experimental D-Bus bindings for GObject
 Summary(pl.UTF-8):	Eksperymentalne wiązania D-Busa do GObject
 Name:		eggdbus
 Version:	0.5
-Release:	1
+Release:	2
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.gz
@@ -79,7 +79,7 @@ Dokumentacja API EggDBus.
 	--%{!?with_apidocs:dis}%{?with_apidocs:en}able-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
