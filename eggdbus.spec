@@ -16,6 +16,7 @@ BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= 1.0.0
 BuildRequires:	dbus-glib-devel >= 0.73
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	glib2-devel >= 1:2.20.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.3}
 BuildRequires:	libtool
