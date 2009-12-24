@@ -5,12 +5,12 @@
 Summary:	Experimental D-Bus bindings for GObject
 Summary(pl.UTF-8):	Eksperymentalne wiązania D-Busa do GObject
 Name:		eggdbus
-Version:	0.5
-Release:	2
+Version:	0.6
+Release:	1
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	44f1f6387c49e8198d7aa755aeee46c6
+# Source0-md5:	b43d2a6c523fcb8b9d0b0300c4222386
 URL:		http://cgit.freedesktop.org/~david/eggdbus
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
