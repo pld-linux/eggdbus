@@ -71,6 +71,7 @@ Dokumentacja API EggDBus.
 %setup -q
 
 %build
+%{?with_apidocs:%{__gtkdocize}}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
