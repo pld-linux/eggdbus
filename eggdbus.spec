@@ -1,13 +1,13 @@
-
+#
 # Conditional build:
-%bcond_without	apidocs			# build without apidocs
-
+%bcond_without	apidocs		# build without apidocs
+#
 Summary:	Experimental D-Bus bindings for GObject
 Summary(pl.UTF-8):	Eksperymentalne wiązania D-Busa do GObject
 Name:		eggdbus
 Version:	0.6
 Release:	1
-License:	LGPL v2
+License:	LGPL v2+
 Group:		Libraries
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	b43d2a6c523fcb8b9d0b0300c4222386
@@ -31,17 +31,17 @@ Experimental D-Bus bindings for GObject.
 Eksperymentalne wiązania D-Busa do GObject.
 
 %package devel
-Summary:	Development files for EggDBus
-Summary(pl.UTF-8):	Pliki programistyczne dla EggDBus
+Summary:	Development files for EggDBus library
+Summary(pl.UTF-8):	Pliki programistyczne biblioteki EggDBus
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.20.0
 
 %description devel
-Development files for EggDBus.
+Development files for EggDBus library.
 
 %description devel -l pl.UTF-8
-Pliki programistyczne dla EggDBus.
+Pliki programistyczne biblioteki EggDBus.
 
 %package static
 Summary:	Static EggDBus library
@@ -105,12 +105,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/eggdbus-binding-tool
+%attr(755,root,root) %{_bindir}/eggdbus-glib-genmarshal
 %attr(755,root,root) %{_libdir}/libeggdbus-1.so
 %{_libdir}/libeggdbus-1.la
-%{_pkgconfigdir}/eggdbus-1.pc
 %{_includedir}/eggdbus-1
-%{_mandir}/man1/*.1*
+%{_pkgconfigdir}/eggdbus-1.pc
+%{_mandir}/man1/eggdbus-binding-tool.1*
 
 %files static
 %defattr(644,root,root,755)
