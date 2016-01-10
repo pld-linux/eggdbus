@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# build without apidocs
-#
+
 Summary:	Experimental D-Bus bindings for GObject
 Summary(pl.UTF-8):	Eksperymentalne wiązania D-Busa do GObject
 Name:		eggdbus
 Version:	0.6
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.gz
@@ -60,6 +60,9 @@ Summary:	EggDBus API documentation
 Summary(pl.UTF-8):	Dokumentacja API EggDBus
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 EggDBus API documentation.
